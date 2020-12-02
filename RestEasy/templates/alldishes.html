@@ -1,0 +1,40 @@
+{% extends "dashboard.html" %}
+{% block content %}
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            Sort by Price
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/alldishesinc">Increasing</a>
+            <a class="dropdown-item" href="/alldishesdec">Decreasing</a>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Vendor</th>
+            <th scope="col">Dish</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Select</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in itemlist %}
+            <tr>
+                <th scope="row">{{ item[1] }}</th>
+                <td>{{ item[2] }}</td>
+                <td>{{ item[3] }}</td>
+                <td><input type="text" class="form-control" id="{{ item[0] }}">
+                </td>
+                <td><a type="button" class="btn btn-primary" href="#">Add</a></td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+{% endblock %}
